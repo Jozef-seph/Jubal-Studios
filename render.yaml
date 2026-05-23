@@ -1,0 +1,23 @@
+# Render Blueprint — deploy this static site from GitHub.
+# Docs: https://render.com/docs/blueprint-spec
+#
+# After your repo is on GitHub: Render Dashboard → New → Blueprint → select the repo
+# (or New → Static Site with root directory `.`, publish directory `.`, build command `true`).
+
+services:
+  - type: web
+    name: jubal-studios-site
+    runtime: static
+    plan: free
+    buildCommand: "true"
+    staticPublishPath: ./
+    headers:
+      - path: /*
+        name: X-Frame-Options
+        value: DENY
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin

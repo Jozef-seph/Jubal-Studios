@@ -1,0 +1,22 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+.idea/
+.vscode/
+*.code-workspace
+
+# Local env (never commit secrets)
+.env
+.env.*
+!.env.example
+
+# Logs / caches
+*.log
+npm-debug.log*
+node_modules/
+
+# Cursor / tooling (optional local config)
+webServerApiSettings.json

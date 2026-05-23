@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Recording Services — Jubal Studios</title>
+    <meta name="description" content="Professional recording, mixing, mastering, and video packages at Jubal Studios in Thika." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body data-page="recording">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="logo" href="index.html">
+          <img
+            class="logo-img"
+            src="assets/jubal-studios-logo.png"
+            alt="Jubal Studios"
+            width="200"
+            height="200"
+            loading="eager"
+            decoding="async"
+          />
+        </a>
+        <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">Menu</button>
+        <nav class="site-nav" id="site-nav" data-site-nav aria-label="Primary">
+          <ul>
+            <li><a href="index.html" data-nav="home">Home</a></li>
+            <li><a href="lessons.html" data-nav="lessons">Lessons</a></li>
+            <li><a href="studio-services.html" data-nav="services">Studio Services</a></li>
+            <li><a href="booking.html" data-nav="booking">Booking</a></li>
+            <li><a href="gallery.html" data-nav="gallery">Gallery</a></li>
+            <li><a href="pricing.html" data-nav="pricing">Pricing</a></li>
+            <li><a href="contact.html" data-nav="contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero hero-compact" aria-labelledby="rec-hero-title">
+        <div class="hero-bg" aria-hidden="true">
+          <img src="https://images.unsplash.com/photo-1598653220546-37f37b813a78?auto=format&fit=crop&w=1600&q=80" alt="" width="1600" height="900" />
+        </div>
+        <div class="hero-overlay" aria-hidden="true"></div>
+        <div class="wrap">
+          <p class="section-kicker">Recording</p>
+          <h1 class="hero-title" id="rec-hero-title">Record your music professionally</h1>
+          <p class="hero-text">Vocals, instruments, podcasts — tracked cleanly and mixed for streaming.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#book-rec">Book session</a>
+            <a class="btn btn-ghost" href="pricing.html">See packages</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="pricing-title">
+        <div class="wrap">
+          <div class="section-header">
+            <p class="section-kicker">Packages</p>
+            <h2 class="section-title" id="pricing-title">Pricing packages</h2>
+            <p class="section-lead">Final rates depend on session length and engineer — <a href="pricing.html">full table on the pricing page</a>.</p>
+          </div>
+          <div class="grid-3">
+            <article class="card icon-card">
+              <h3 class="card-title">1-hour recording session</h3>
+              <p class="card-text">Great for vocals overdubs, quick demos, and podcast segments.</p>
+              <p class="card-text" style="color: var(--accent); font-weight: 700">Ask for quote</p>
+            </article>
+            <article class="card icon-card">
+              <h3 class="card-title">Mixing &amp; mastering</h3>
+              <p class="card-text">Stem mixdown, tonal balance, dynamics, and loudness for Spotify &amp; Apple Music.</p>
+              <p class="card-text" style="color: var(--accent); font-weight: 700">Ask for quote</p>
+            </article>
+            <article class="card icon-card">
+              <h3 class="card-title">Video shoot package</h3>
+              <p class="card-text">Simple performance capture and edit for singles and social clips.</p>
+              <p class="card-text" style="color: var(--accent); font-weight: 700">Ask for quote</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="background: rgba(0,0,0,0.2)" aria-labelledby="bring-title">
+        <div class="wrap grid-2">
+          <div>
+            <p class="section-kicker">Session prep</p>
+            <h2 class="section-title" id="bring-title">What to bring</h2>
+            <ul class="section-lead" style="padding-left: 1.1rem; margin: 0">
+              <li>Lyrics and any marked-up chord charts</li>
+              <li>Beats or instrumentals on a labelled flash drive</li>
+              <li>Reference tracks you love the tone of</li>
+              <li>Water and snacks — sessions run smoother when you are comfortable</li>
+            </ul>
+          </div>
+          <div class="card" style="padding: 1.5rem">
+            <h3 class="card-title">Special offers</h3>
+            <p class="card-text">Ask about student bundles (lessons + studio time) and weekday off-peak blocks.</p>
+            <a class="btn btn-whatsapp" style="margin-top: 1rem" href="https://wa.me/254115144078?text=Hi%20Jubal%20Studios%2C%20what%20promotions%20do%20you%20have%20for%20recording%3F" target="_blank" rel="noopener noreferrer">Ask on WhatsApp</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="book-rec" aria-labelledby="book-rec-title">
+        <div class="wrap grid-2">
+          <div>
+            <p class="section-kicker">Reserve</p>
+            <h2 class="section-title" id="book-rec-title">Book a session</h2>
+            <p class="section-lead">Tell us your date and service — submit to open WhatsApp with your request prefilled.</p>
+          </div>
+          <form
+            class="card form"
+            style="padding: 1.5rem"
+            data-booking-form
+            data-booking-title="Recording session booking"
+            novalidate
+          >
+            <div data-form-panel>
+              <div class="form-row-2">
+                <div>
+                  <label for="rec-date">Date</label>
+                  <input id="rec-date" name="date" type="date" data-required />
+                  <p class="field-error" data-error-for="date"></p>
+                </div>
+                <div>
+                  <label for="rec-time">Time</label>
+                  <input id="rec-time" name="time" type="time" data-required />
+                  <p class="field-error" data-error-for="time"></p>
+                </div>
+              </div>
+              <div>
+                <label for="rec-service">Service type</label>
+                <select id="rec-service" name="service" data-required>
+                  <option value="">Select…</option>
+                  <option>Recording (hourly)</option>
+                  <option>Mixing</option>
+                  <option>Mastering</option>
+                  <option>Video package</option>
+                </select>
+                <p class="field-error" data-error-for="service"></p>
+              </div>
+              <div>
+                <label for="rec-name">Name / artist</label>
+                <input id="rec-name" name="name" type="text" autocomplete="name" data-required />
+                <p class="field-error" data-error-for="name"></p>
+              </div>
+              <div>
+                <label for="rec-phone">Phone</label>
+                <input id="rec-phone" name="phone" type="tel" autocomplete="tel" data-required />
+                <p class="field-error" data-error-for="phone"></p>
+              </div>
+              <button class="btn btn-primary" type="submit">Book session</button>
+            </div>
+            <div class="form-success" data-form-success hidden aria-live="polite">
+              <h3 class="form-success-title">Thank you for your booking request.</h3>
+              <p class="form-success-text">Jubal Studios will be in touch soon.</p>
+              <button type="button" class="btn btn-ghost" data-form-reset>Submit another request</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-grid">
+        <div>
+          <p class="footer-brand">Jubal <span>Studios</span></p>
+          <p class="footer-tag">Music lessons, recording, rehearsal rooms, and production support in Thika.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="lessons.html">Lessons</a></li>
+            <li><a href="studio-services.html">Studio services</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Privacy policy</a></li>
+            <li><a href="#">Terms of booking</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="wrap footer-bottom">
+        <span>&copy; <span id="y"></span> Jubal Studios. All rights reserved.</span>
+        <div class="socials">
+          <a href="#" aria-label="Instagram">Instagram</a>
+          <a href="#" aria-label="YouTube">YouTube</a>
+          <a href="#" aria-label="TikTok">TikTok</a>
+        </div>
+      </div>
+    </footer>
+    <script src="js/main.js" defer></script>
+  </body>
+</html>
