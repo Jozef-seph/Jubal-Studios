@@ -8,7 +8,7 @@ services:
   - type: web
     name: jubal-studios-site
     runtime: static
-    plan: free
+    # No `plan` — static sites use Render's default $0 CDN tier (plan: free is invalid for runtime: static).
     buildCommand: "true"
     staticPublishPath: ./
     headers:
