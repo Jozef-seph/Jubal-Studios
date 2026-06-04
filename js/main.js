@@ -388,10 +388,58 @@
     io.observe(hero || img);
   }
 
+  function initScrollTop() {
+    if (qs("[data-scroll-top]")) return;
+
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.setAttribute("data-scroll-top", "");
+    btn.className = "scroll-top";
+    btn.setAttribute("aria-label", "Back to top");
+    btn.innerHTML =
+      '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg>';
+    document.body.appendChild(btn);
+
+    var visible = false;
+
+    function setVisible(show) {
+      if (show === visible) return;
+      visible = show;
+      btn.classList.toggle("is-visible", show);
+    }
+
+    function update() {
+      var y = window.pageYOffset || document.documentElement.scrollTop || 0;
+      setVisible(y > 320);
+    }
+
+    var ticking = false;
+    window.addEventListener(
+      "scroll",
+      function () {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function () {
+          ticking = false;
+          update();
+        });
+      },
+      { passive: true }
+    );
+
+    btn.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      btn.blur();
+    });
+
+    update();
+  }
+
   initNav();
   initFooterYear();
   initContactWhatsApp();
   initForms();
   initWaPrefill();
   initHeroMotionPause();
+  initScrollTop();
 })();

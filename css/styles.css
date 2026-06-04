@@ -65,6 +65,7 @@ html {
 
 body {
   margin: 0;
+  overflow-x: clip;
   font-family: var(--font-sans);
   font-weight: var(--font-weight-normal);
   font-size: 1rem;
@@ -979,9 +980,11 @@ body[data-page="home"] .quick-actions--wire .quick-actions__wire {
   padding-block: 0 clamp(2.25rem, 5vw, 3.75rem);
   padding-inline: env(safe-area-inset-left, 0px) env(safe-area-inset-right, 0px);
   width: 100%;
+  max-width: 100%;
   box-sizing: border-box;
   background: #000;
   color: #fff;
+  overflow-x: clip;
 }
 
 body[data-page="home"] .quick-actions--wire .quick-actions__wire-grid {
@@ -989,6 +992,8 @@ body[data-page="home"] .quick-actions--wire .quick-actions__wire-grid {
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   align-items: stretch;
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
   box-sizing: border-box;
   background: #000;
   min-height: clamp(300px, 48vh, 580px);
@@ -1032,10 +1037,12 @@ body[data-page="home"] .quick-actions__wire-image-well img {
   transition: transform 0.55s var(--ease-out), filter 0.45s var(--ease-soft);
 }
 
-body[data-page="home"] .quick-actions__wire-cell:hover .quick-actions__wire-image-well img,
-body[data-page="home"] .quick-actions__wire-cell:focus-visible .quick-actions__wire-image-well img {
-  transform: scale(1.06);
-  filter: brightness(1.04) saturate(1.04);
+@media (hover: hover) and (pointer: fine) {
+  body[data-page="home"] .quick-actions__wire-cell:hover .quick-actions__wire-image-well img,
+  body[data-page="home"] .quick-actions__wire-cell:focus-visible .quick-actions__wire-image-well img {
+    transform: scale(1.06);
+    filter: brightness(1.04) saturate(1.04);
+  }
 }
 
 body[data-page="home"] .quick-actions__wire-text {
@@ -1107,13 +1114,19 @@ body[data-page="home"] .quick-actions__wire-cell:focus-visible .quick-actions__w
 }
 
 /* Home — about: lessons-style wire grid, two cells only (photo | copy) */
+body[data-page="home"] .about-story {
+  overflow-x: clip;
+}
+
 body[data-page="home"] .about-story__wire {
   padding-block: clamp(2.25rem, 5vw, 3.75rem);
   padding-inline: env(safe-area-inset-left, 0px) env(safe-area-inset-right, 0px);
   width: 100%;
+  max-width: 100%;
   box-sizing: border-box;
   background: #000;
   color: #fff;
+  overflow-x: clip;
 }
 
 body[data-page="home"] .about-story__wire-grid {
@@ -1121,7 +1134,8 @@ body[data-page="home"] .about-story__wire-grid {
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   align-items: stretch;
   width: 100%;
-  max-width: none;
+  max-width: 100%;
+  min-width: 0;
   margin-inline: 0;
   box-sizing: border-box;
   background: #000;
@@ -1132,6 +1146,8 @@ body[data-page="home"] .about-story__wire-cell {
   display: flex;
   flex-direction: column;
   min-height: 0;
+  min-width: 0;
+  max-width: 100%;
 }
 
 /* Photo tile: image covers the entire cell (person fills the grid) */
@@ -1155,12 +1171,15 @@ body[data-page="home"] .about-story__wire-cell--media .about-story__wire-figure 
   width: 100%;
   height: 100%;
   min-height: 100%;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 body[data-page="home"] .about-story__wire-cell--media .about-story__wire-img {
   width: 100%;
   height: 100%;
   min-height: 100%;
+  max-width: 100%;
   object-fit: cover;
   object-position: 28% center;
   border-radius: 0;
@@ -1170,9 +1189,11 @@ body[data-page="home"] .about-story__wire-cell--media .about-story__wire-img {
   transition: transform 0.55s var(--ease-out), filter 0.45s var(--ease-soft);
 }
 
-body[data-page="home"] .about-story__wire-cell--media:hover .about-story__wire-img {
-  transform: scale(1.05);
-  filter: brightness(1.05) saturate(1.05);
+@media (hover: hover) and (pointer: fine) {
+  body[data-page="home"] .about-story__wire-cell--media:hover .about-story__wire-img {
+    transform: scale(1.05);
+    filter: brightness(1.05) saturate(1.05);
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -1234,8 +1255,11 @@ body[data-page="home"] .about-story .about-story__body {
   }
 
   body[data-page="home"] .about-story__wire-cell--media {
-    min-height: clamp(260px, 52vw, 420px);
-    aspect-ratio: 16 / 10;
+    width: 100%;
+    max-width: 100%;
+    min-height: clamp(220px, 48vw, 360px);
+    aspect-ratio: 4 / 3;
+    max-height: min(52vh, 380px);
   }
 
   body[data-page="home"] .about-story__wire-copy {
@@ -1246,6 +1270,12 @@ body[data-page="home"] .about-story .about-story__body {
 @media (max-width: 520px) {
   body[data-page="home"] .about-story__wire-cell--media .about-story__wire-img {
     object-position: 22% center;
+  }
+
+  body[data-page="home"] .about-story__wire-cell--media {
+    aspect-ratio: 1 / 1;
+    min-height: 0;
+    max-height: min(68vw, 320px);
   }
 }
 
@@ -1657,6 +1687,63 @@ textarea {
 .toast strong {
   display: block;
   margin-bottom: 0.25rem;
+}
+
+/* Back to top — injected by js/main.js on all pages that load it */
+.scroll-top {
+  position: fixed;
+  z-index: 210;
+  right: max(1rem, env(safe-area-inset-right, 0px) + 0.5rem);
+  bottom: max(1.15rem, env(safe-area-inset-bottom, 0px) + 0.75rem);
+  width: 2.75rem;
+  height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  background: rgba(12, 20, 28, 0.88);
+  color: var(--text);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(0.5rem) scale(0.96);
+  pointer-events: none;
+  transition: opacity 0.28s var(--ease-soft), transform 0.32s var(--ease-out), visibility 0.28s,
+    border-color 0.2s var(--ease-soft), background 0.2s var(--ease-soft);
+}
+
+.scroll-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.scroll-top:hover {
+  border-color: rgba(240, 180, 41, 0.35);
+  background: rgba(18, 28, 40, 0.95);
+}
+
+.scroll-top:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.scroll-top svg {
+  display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-top {
+    transition-duration: 0.01ms;
+  }
+
+  .scroll-top.is-visible {
+    transform: none;
+  }
 }
 
 /* Contact strip */
