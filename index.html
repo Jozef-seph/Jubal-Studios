@@ -82,44 +82,52 @@
         </div>
       </section>
 
-      <section class="section quick-actions" aria-labelledby="quick-title">
+      <section class="section quick-actions quick-actions--wire" aria-labelledby="quick-title">
         <div class="wrap wrap--wide">
           <div class="section-header">
             <p class="section-kicker">Get started</p>
             <h2 class="section-title" id="quick-title">Explore the studio</h2>
-            <p class="section-lead">Lessons have their own page; studio services and booking share one hub — use the cards or the menu above.</p>
+            <p class="section-lead">Lessons have their own page; studio services and booking share one place — tap a tile below.</p>
           </div>
-          <div class="grid-2">
-            <a class="card" href="lessons.html">
-              <div class="card-media">
-                <img
-                  src="assets/piano lessons.jpg"
-                  alt=""
-                  width="1400"
-                  height="700"
-                  loading="lazy"
-                />
+        </div>
+        <div class="quick-actions__wire">
+          <div class="quick-actions__wire-grid" role="group" aria-label="Explore the studio">
+            <a class="quick-actions__wire-cell" href="lessons.html">
+              <div class="quick-actions__wire-media">
+                <div class="quick-actions__wire-image-well">
+                  <img
+                    src="assets/piano lessons.jpg"
+                    alt="Piano lessons at Jubal Studios"
+                    width="1400"
+                    height="700"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
               </div>
-              <div class="card-body">
-                <h3 class="card-title">Lessons</h3>
-                <p class="card-text">Programmes, coaches, and the lesson booking form.</p>
-                <span class="btn btn-ghost">Open lessons</span>
+              <div class="quick-actions__wire-text">
+                <h3 class="quick-actions__wire-title">Lessons</h3>
+                <p class="quick-actions__wire-desc">Programmes, coaches, and the lesson booking form.</p>
+                <span class="quick-actions__wire-cta">Open lessons</span>
               </div>
             </a>
-            <a class="card" href="studio-services.html">
-              <div class="card-media">
-                <img
-                  src="assets/studio services.jpg"
-                  alt=""
-                  width="1400"
-                  height="700"
-                  loading="lazy"
-                />
+            <a class="quick-actions__wire-cell" href="studio-services.html#booking">
+              <div class="quick-actions__wire-media">
+                <div class="quick-actions__wire-image-well">
+                  <img
+                    src="assets/studio services.jpg"
+                    alt="Studio services and booking at Jubal Studios"
+                    width="1400"
+                    height="700"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
               </div>
-              <div class="card-body">
-                <h3 class="card-title">Studio services &amp; booking</h3>
-                <p class="card-text">Recording, rehearsal, room gear, and how to book sessions.</p>
-                <span class="btn btn-ghost">Open hub</span>
+              <div class="quick-actions__wire-text">
+                <h3 class="quick-actions__wire-title">Studio services &amp; booking</h3>
+                <p class="quick-actions__wire-desc">Recording, rehearsal, room gear, and how to book sessions.</p>
+                <span class="quick-actions__wire-cta">Open booking</span>
               </div>
             </a>
           </div>
@@ -127,27 +135,32 @@
       </section>
 
       <section class="section about-story" aria-labelledby="about-title">
-        <div class="wrap wrap--wide">
-          <div class="about-story__grid">
-            <figure class="about-story__figure">
-              <img
-                class="about-story__img"
-                src="screenshots/Screenshot 2026-05-21 220059.png"
-                alt="Producer at the mixing console in a recording studio"
-                width="900"
-                height="1125"
-                loading="lazy"
-              />
-            </figure>
-            <div class="about-story__content">
-              <p class="about-story__kicker">About Jubal Studios</p>
-              <h2 class="about-story__heading" id="about-title">
-                A full music space in Thika
-              </h2>
-              <p class="about-story__body">
-                We combine teaching, tracking, and rehearsal so you can grow as a musician and capture your sound in one place. Whether you are starting lessons or finishing a master, our team is here and the room is ready.
-              </p>
-            </div>
+        <div class="about-story__wire">
+          <div class="about-story__wire-grid" role="group" aria-labelledby="about-title">
+            <article class="about-story__wire-cell about-story__wire-cell--media" aria-label="Studio photo">
+              <div class="about-story__wire-image-well">
+                <figure class="about-story__wire-figure">
+                  <img
+                    class="about-story__wire-img"
+                    src="screenshots/Screenshot 2026-05-21 220059.png"
+                    alt="Producer at the mixing console in a recording studio"
+                    width="900"
+                    height="900"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </figure>
+              </div>
+            </article>
+            <article class="about-story__wire-cell about-story__wire-cell--copy">
+              <div class="about-story__wire-copy">
+                <p class="about-story__kicker">About Jubal Studios</p>
+                <h2 class="about-story__heading" id="about-title">A full music space in Thika</h2>
+                <p class="about-story__body">
+                  We combine teaching, tracking, and rehearsal so you can grow as a musician and capture your sound in one place. Whether you are starting lessons or finishing a master, our team is here and the room is ready.
+                </p>
+              </div>
+            </article>
           </div>
         </div>
       </section>

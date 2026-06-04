@@ -324,11 +324,38 @@
     });
   }
 
+  function readRootCssVar(name) {
+    return String(
+      getComputedStyle(document.documentElement).getPropertyValue(name) || ""
+    ).trim();
+  }
+
   function initWaPrefill() {
+    var fontVarNames = [
+      "--font-serif",
+      "--font-sans",
+      "--font-display",
+      "--font-weight-normal",
+      "--font-weight-regular",
+      "--font-weight-medium",
+      "--font-weight-semibold",
+      "--font-weight-bold",
+    ];
+    var cssVariables = {};
+    fontVarNames.forEach(function (name) {
+      cssVariables[name] = readRootCssVar(name);
+    });
+
+    var data = {
+      cssVariables: cssVariables,
+    };
+
     window.JubalStudios = {
       whatsappNumber: WHATSAPP_NUMBER,
       email: STUDIO_EMAIL,
       phone: STUDIO_PHONE,
+      /** Resolved font tokens from `:root` (for embeds, canvas, or external scripts). */
+      data: data,
       openWhatsApp: function (presetText) {
         var text = presetText || "Hi Jubal Studios, I'd like to book a session.";
         openWhatsAppWithText(text);
