@@ -5,10 +5,10 @@
    * Studio WhatsApp (digits only, country code, no +).
    * Used for manual `wa.me` links, `JubalStudios.openWhatsApp()`, the contact page composer, and booking forms (submit opens WhatsApp with details).
    */
-  var WHATSAPP_NUMBER = "254115144078";
+  var WHATSAPP_NUMBER = "254798392626";
 
-  var STUDIO_EMAIL = "hello@jubalstudios.co.ke";
-  var STUDIO_PHONE = "+254 115 144 078";
+  var STUDIO_EMAIL = "jubalstudios20@gmail.com";
+  var STUDIO_PHONE = "+254 798 392 626";
 
   /** Encoded URL length safety (WhatsApp / browsers vary; stay conservative). */
   var WA_MAX_ENCODED_LENGTH = 2800;
@@ -209,10 +209,8 @@
     var page = document.body.getAttribute("data-page");
     /** Pages without their own nav tab highlight the closest hub. */
     var navKey = page;
-    if (page === "recording") {
+    if (page === "recording" || page === "rehearsal") {
       navKey = "services";
-    } else if (page === "rehearsal") {
-      navKey = "booking";
     }
     if (navKey) {
       qsa('a[data-nav="' + navKey + '"]', nav).forEach(function (a) {
@@ -343,9 +341,30 @@
     };
   }
 
+  function initHeroMotionPause() {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    var img = qs(".hero-bg img");
+    if (!img || typeof IntersectionObserver === "undefined") return;
+
+    var io = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (e) {
+          var on = e.isIntersecting;
+          img.style.animationPlayState = on ? "running" : "paused";
+          img.style.willChange = on ? "transform" : "auto";
+        });
+      },
+      { root: null, rootMargin: "48px 0px 48px 0px", threshold: 0 }
+    );
+
+    var hero = img.closest(".hero");
+    io.observe(hero || img);
+  }
+
   initNav();
   initFooterYear();
   initContactWhatsApp();
   initForms();
   initWaPrefill();
+  initHeroMotionPause();
 })();
