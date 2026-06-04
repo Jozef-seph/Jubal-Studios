@@ -221,6 +221,22 @@ textarea:focus-visible {
   transform: scale(0.98);
 }
 
+.nav-toggle__bars {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 1.35rem;
+}
+
+.nav-toggle__bars span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  border-radius: 1px;
+  background: currentColor;
+}
+
 .site-nav ul {
   list-style: none;
   margin: 0;
@@ -258,7 +274,11 @@ textarea:focus-visible {
   .nav-toggle {
     display: inline-flex;
     align-items: center;
-    gap: 0.35rem;
+    justify-content: center;
+    gap: 0;
+    padding: 0.55rem 0.62rem;
+    min-width: 2.75rem;
+    min-height: 2.75rem;
   }
 
   .site-nav {
@@ -752,6 +772,32 @@ a.card:hover {
 
 .card:hover .card-media img {
   transform: scale(1.045);
+}
+
+/* Lessons — programme grid: softer photos, no card frame border */
+body[data-page="lessons"] main .grid-3 .card {
+  border: none;
+  box-shadow: 0 14px 44px rgba(0, 8, 20, 0.38);
+}
+
+body[data-page="lessons"] main .grid-3 .card:hover {
+  border-color: transparent;
+  box-shadow: 0 20px 56px rgba(0, 10, 24, 0.48);
+}
+
+body[data-page="lessons"] main .grid-3 .card .card-media {
+  border-radius: var(--radius-sm);
+  background: #05080c;
+}
+
+body[data-page="lessons"] main .grid-3 .card .card-media img {
+  filter: brightness(0.93) contrast(0.96) saturate(0.92);
+  transition: transform var(--t-slow) var(--ease-out), filter var(--t-med) var(--ease-soft);
+}
+
+body[data-page="lessons"] main .grid-3 .card:hover .card-media img {
+  transform: scale(1.02);
+  filter: brightness(0.96) contrast(0.98) saturate(0.95);
 }
 
 .card-body {
@@ -1595,6 +1641,10 @@ textarea {
   .equipment-item:hover img,
   .gallery-item:hover img {
     transform: none !important;
+  }
+
+  body[data-page="lessons"] main .grid-3 .card .card-media img {
+    filter: none !important;
   }
 
   .btn-primary:hover,
