@@ -20,3 +20,8 @@ node_modules/
 
 # Cursor / tooling (optional local config)
 webServerApiSettings.json
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
